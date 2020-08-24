@@ -20,4 +20,3 @@ public class Ship {
         this.numOfHits = numOfHits;
     }
 }
-
