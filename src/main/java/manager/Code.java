@@ -2,8 +2,17 @@ package manager;
 
 import domain.Ship;
 
+import java.util.Random;
+
 public class Code {
     Ship ship = new Ship();
+
+    public void autoGenerate() {
+        int Random = (int) (Math.random() * 4);
+        int[] location = {Random, ++Random, ++Random};
+        ship.setLocationCells(location);
+        //TODO: Данный метод должен генерировать начальную ячейку корабля
+    }
 
     public String checkYourself(String where) {
         int whereFormatToInt = Integer.parseInt(where);
