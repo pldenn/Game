@@ -1,14 +1,23 @@
 package manager;
 
 import domain.Ship;
+import input.GameHelper;
 
+import java.io.IOException;
 import java.util.Random;
 
 public class Code {
     Ship ship = new Ship();
 
+    public static void main(String[] args) throws IOException {
+        GameHelper helper = new GameHelper();
+        System.out.println(helper.input("введите значение"));
+        //TODO: этот метод используется для ввода значения пользователем
+        //TODO: осталось понять как его использовать в коде
+    }
+
     public void autoGenerate() {
-        int Random = (int) (Math.random() * 4);
+        int Random = (int) (Math.random() * 5);
         int[] location = {Random, ++Random, ++Random};
         ship.setLocationCells(location);
         //TODO: Данный метод должен генерировать начальную ячейку корабля
