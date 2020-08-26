@@ -1,13 +1,24 @@
 package manager;
 
 import domain.Ship;
+import input.GameHelper;
 
+import java.io.IOException;
 import java.util.ArrayList;
 
 public class Code {
     Ship ship = new Ship();
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
+        Code code = new Code();
+        GameHelper helper = new GameHelper();
+        int numOfHits = 0;
+        code.autoGenerateV2();
+        while (!code.ship.getLocation().isEmpty()) {
+            System.out.println(code.checkYourselfV2(helper.input("Введите значение координаты выстрела в пределах 0 - 7")));
+            ++numOfHits;
+        }
+        System.out.println("Игра окончена. Ваш счет: " + numOfHits);
         //TODO: тут должна быть собранаа вся игра
     }
 
@@ -21,12 +32,10 @@ public class Code {
         test.add(Integer.toString(++first));
 
         ship.setLocation(test);
-        //TODO: Данный метод должен генерировать ячейки корабля для ArrayList
     }
 
 
     public String checkYourselfV2(String userInput) {
-
         String result = "Мимо";
 
         int index = ship.getLocation().indexOf(userInput);

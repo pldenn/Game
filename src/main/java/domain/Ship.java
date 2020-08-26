@@ -8,6 +8,6 @@ import java.util.ArrayList;
 
 public class Ship {
     private int numOfHits;
-    ArrayList<String> location = new ArrayList<>();
+    private ArrayList<String> location = new ArrayList<>();
 
 }

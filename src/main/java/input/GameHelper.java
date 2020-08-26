@@ -22,6 +22,7 @@ public class GameHelper {
 
     public String inputV2() {
         Scanner sc = new Scanner(System.in);
+        System.out.println("Введите значение координаты выстрела в пределах 0 - 7");
         String input = sc.nextLine();
         return input;
     }
@@ -29,3 +30,4 @@ public class GameHelper {
 //TODO: этот метод используется для ввода значения пользователем
 //TODO: осталось понять как его проверять в тестах JUnit
 //TODO: только для использования в методе main????
+
