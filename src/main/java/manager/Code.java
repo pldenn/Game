@@ -1,41 +1,41 @@
 package manager;
 
 import domain.Ship;
-import input.GameHelper;
 
-import java.io.IOException;
-import java.util.Random;
+import java.util.ArrayList;
 
 public class Code {
     Ship ship = new Ship();
 
-    public static void main(String[] args) throws IOException {
-        GameHelper helper = new GameHelper();
-        System.out.println(helper.input("введите значение"));
-        //TODO: этот метод используется для ввода значения пользователем
-        //TODO: осталось понять как его использовать в коде
+    public static void main(String[] args) {
+        //TODO: тут должна быть собранаа вся игра
     }
 
-    public void autoGenerate() {
-        int Random = (int) (Math.random() * 5);
-        int[] location = {Random, ++Random, ++Random};
-        ship.setLocationCells(location);
-        //TODO: Данный метод должен генерировать начальную ячейку корабля
+
+    public void autoGenerateV2() {
+        ArrayList<String> test = new ArrayList<>();
+        int first = (int) (Math.random() * 5);
+
+        test.add(Integer.toString(first));
+        test.add(Integer.toString(++first));
+        test.add(Integer.toString(++first));
+
+        ship.setLocation(test);
+        //TODO: Данный метод должен генерировать ячейки корабля для ArrayList
     }
 
-    public String checkYourself(String where) {
-        int whereFormatToInt = Integer.parseInt(where);
+
+    public String checkYourselfV2(String userInput) {
+
         String result = "Мимо";
 
-        for (int cells : ship.getLocationCells()) {
-            if (cells == whereFormatToInt) {
-                ship.setNumOfHits(ship.getNumOfHits() + 1);
-                result = "Попал";
-                break;
-            }
-        }
-        if (ship.getNumOfHits() == ship.getLocationCells().length) {
-            result = "Убил";
+        int index = ship.getLocation().indexOf(userInput);
+        if (index >= 0) {
+            ship.getLocation().remove(userInput);
+            if (ship.getLocation().isEmpty()) {
+                result = "Убил";
+            } else
+                result = "Попадание";
         }
         return result;
     }

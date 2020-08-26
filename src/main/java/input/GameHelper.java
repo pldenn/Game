@@ -3,6 +3,7 @@ package input;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.util.Scanner;
 
 public class GameHelper {
 
@@ -18,4 +19,13 @@ public class GameHelper {
         }
         return inputLine;
     }
+
+    public String inputV2() {
+        Scanner sc = new Scanner(System.in);
+        String input = sc.nextLine();
+        return input;
+    }
 }
+//TODO: этот метод используется для ввода значения пользователем
+//TODO: осталось понять как его проверять в тестах JUnit
+//TODO: только для использования в методе main????
